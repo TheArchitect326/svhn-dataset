@@ -25,4 +25,4 @@ print(max)
 for xml in glob(os.path.join(os.getcwd(), 'annotations/test/*.xml')):
   name = xml.split('.')[0].split('/')[-1]  
   newname = str(int(name) + int(max))
-  os.rename(xml, f'annotations/test/{newname}.png')
+  os.rename(xml, f'annotations/test/{newname}.xml')

@@ -14,15 +14,7 @@ for png in glob(os.path.join(os.getcwd(), 'images/test/*.png')):
   newname = str(int(name) + int(max))
   os.rename(png, f'images/test/{newname}.png')
 
-max = '0'
-for xml in glob(os.path.join(os.getcwd(), 'annotations/train/*.xml')):
-  this = xml.split('.')[0].split('/')[-1]
-  if int(this) > int(max):
-    max = this
-
-print(max)
-
-for xml in glob(os.path.join(os.getcwd(), 'annotations/test/*.xml')):
+for xml in glob(os.path.join(os.getcwd(), 'images/test/*.xml')):
   name = xml.split('.')[0].split('/')[-1]  
   newname = str(int(name) + int(max))
-  os.rename(xml, f'annotations/test/{newname}.xml')
+  os.rename(xml, f'images/test/{newname}.xml')

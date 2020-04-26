@@ -6,10 +6,7 @@ import xml.etree.ElementTree as ET
 
 def xml_to_csv(path, adj=0):
     xml_list = []
-    print(path)
-    print(os.path.exists(path))
     for xml_file in glob.glob(os.path.join(path, '*.xml')):
-        print(xml_file)
         tree = ET.parse(xml_file)
         root = tree.getroot()
         for member in root.findall('object'):
@@ -29,8 +26,8 @@ def xml_to_csv(path, adj=0):
 
 
 def main():
-    for c, i in enumerate(['test', 'train']):
-        image_path = os.path.join(os.getcwd(), 'annotations/{}'.format(i))
+    for c, i in enumerate(['train', 'test']):
+        image_path = os.path.join(os.getcwd(), 'images/{}'.format(i))
         print(image_path)
         xml_df = xml_to_csv(image_path, c * 33402)
         xml_df.to_csv('data/{}_labels.csv'.format(i), index=None)
